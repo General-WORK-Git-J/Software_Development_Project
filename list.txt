@@ -16,7 +16,7 @@ captain boost? (1.2x/1.5x to a given stat? or add a weakness?) ~
 sorts teams into highest to lowest? (stats, members, alphabetical order?) ^
 admin login + limit to hero create for admin perms? (hard coded/interface) ^
 
-
+testing charlie
 
 
 (possible mechanics)
