@@ -3,26 +3,35 @@ ideas:
 ~ = maybe
 * = easy
 ^ = hard
-slots (Kaido can take up multiple team slots)
+
+slots (Kaido can take up multiple team slots)~
+
 system to compare teams (stats, member size, captains) ^
+
 average stats of a given team *
+
 create heroes and teams through user input *
+
 add descriptions (lore) to each hero given by the system, with the ability ->
 -> to add lore to heroes added through user input ^~
-implementation of a nemesis/chemistry/friend system? (batman v joker) ~
-implementation of a save state (text file)? *~
-multi user implementation with login system? *
-captain boost? (1.2x/1.5x to a given stat? or add a weakness?) ~
-sorts teams into highest to lowest? (stats, members, alphabetical order?) ^
-admin login + limit to hero create for admin perms? (hard coded/interface) ^
 
-testing charlie
+implementation of a nemesis/chemistry/friend system? (batman v joker) ~
+
+implementation of a save state (text file)? *~
+
+multi user implementation with login system? *
+
+captain boost? (1.2x/1.5x to a given stat? or add a weakness?) ~
+
+sorts teams into highest to lowest? (stats, members, alphabetical order?) ^
+
+admin login + limit to hero create for admin perms? (hard coded/interface) ^
 
 
 (possible mechanics)
 Fighting
 Teams can have the bool hero or villain
-Teams can only fight bool if on oposing sides?
+Teams can only fight bool if on opposing sides?
 Fighting takes user inputs or simulation occurs
 
 
@@ -36,7 +45,7 @@ Users can
 create teams
 add from a pool of characters created by the admin
 name the team
-add a description to there team
+add a description to their team
 possibly use battle functionality 
 
 
