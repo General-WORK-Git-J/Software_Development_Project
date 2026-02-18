@@ -2,17 +2,21 @@
     which defines the properties of hero characters in our Hero-Agency-Management project.
 */
 
-#pragma once
+#ifndef HERO_H
+#define HERO_H
+#include <vector>
 #include <iostream>
 #include <string>
-using namespace std;
+using  std::string;
+using std::vector;
+
 
 class Hero {
     
 private:
 
 string heroName;
-float health;
+int health;
 int attack;
 string weakness;
 int heroCount = 0;
@@ -21,41 +25,47 @@ bool isAlive = true;
 
 public:
 
-Hero();
-Hero(string n);
-Hero(string n, float h);
-Hero(string n, float h, int a);
-Hero(string n, float h, int a, string w);
-Hero(string n, float h, int a, string w, bool s);
-Hero(string n, float h, int a, string w, bool s, bool stat);
-
-void setHeroName(string n) { heroName = n;}
+//Getters
 string getHeroName() {return heroName;}
-
-void setHealth(float h) {health = h;}
-float getHealth() {return health;}
-
-void setAttack(int a) {attack = a;}
-int getAttack() {return attack;};
-
-void setWeakness(string w) {weakness = w;}
+int getHealth() {return health;}
+int getAttack() {return attack;}
 string getWeakness() {return weakness;}
-
-void setCaptainStatus(bool s) {captainStatus = s;}
 bool getCaptainStatus() {return captainStatus;}
-
-void setAlive(bool stat) {isAlive = stat;}
 bool getAlive() {return isAlive;}
 
-void displayHeroInfo();
+//Setters
+void setHeroName(string n) { heroName = n;}
+void setHealth(int h) {health = h;}
+void setAttack(int a) {attack = a;}
+void setWeakness(string w) {weakness = w;}
+void setCaptainStatus(bool s) {captainStatus = s;}
+void setAlive(bool alive) {isAlive = alive;}
+
+//General
+
+//Constructors
+
+Hero();
+Hero(string n);
+Hero(string n, int h);
+Hero(string n, int h, int a);
+Hero(string n, int h, int a, string w);
+Hero(string n, int h, int a, string w, bool s);
+Hero(string n, int h, int a, string w, bool s, bool stat);
+
 };
 
-Hero::Hero(){
-    heroName = "Unknown Hero";
-    health = 100.0;
-    attack = 10;
-    weakness = "None";
-    captainStatus = false;
+//Overload constructors
+
+Hero::Hero(string n, int h, int a, string w, bool s, bool stat) {
+    heroName = n;
+    health = h;
+    attack = a;
+    weakness = w;
+    captainStatus = s;
+    isAlive = stat;
     isAlive = true;
     heroCount++;
 };
+
+#endif
