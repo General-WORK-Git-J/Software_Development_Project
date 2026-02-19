@@ -18,9 +18,9 @@ string heroName;
 int health;
 int attack;
 string weakness;
-int heroCount = 0;
-bool captainStatus = false;
-bool isAlive = true;
+int heroCount;
+bool captainStatus;
+bool isAlive;
 
 public:
 
@@ -51,7 +51,6 @@ Hero(string n, int h, int a);
 Hero(string n, int h, int a, string w);
 Hero(string n, int h, int a, string w, bool s);
 Hero(string n, int h, int a, string w, bool s, bool stat);
-
 };
 
 //Overload constructors

@@ -1,24 +1,28 @@
 #include "captain.h"
 #include "team.h"
-using namespace std;
+using std::string;
+using std::cout;
+using std::endl;
+using std::vector;
 
 Captain::Captain() {
-    captainName = "Unknown Captain";
+    captainName = "Unknown";
     team = nullptr;
     captainCount++;
 };
+
+Captain::Captain(string name) {
+    captainName = name;
+    team = nullptr;
+    captainCount++;
+};
+
 bool Captain::isMultipleCaptains() {
     if (captainCount > 1) {
         cout << "Warning: More than one captain created. Captain count: " << captainCount << endl;
         return true;
     }
     return false;
-}
-
-Captain::Captain(string name, Team* t) {
-    captainName = name;
-    team = t;
-    captainCount++;
 };
 
 void Captain::displayCaptainInfo() {
