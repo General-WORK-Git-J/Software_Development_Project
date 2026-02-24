@@ -4,7 +4,7 @@
             "name": "C/C++: cl.exe build and debug active file",
             "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}\\${fileBasenameNoExtension}.exe",
+            "program": "${workspaceFolder}\\Software_Development_Project.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

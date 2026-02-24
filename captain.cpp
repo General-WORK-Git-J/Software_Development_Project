@@ -5,18 +5,6 @@ using std::cout;
 using std::endl;
 using std::vector;
 
-Captain::Captain() {
-    captainName = "Unknown";
-    team = nullptr;
-    captainCount++;
-};
-
-Captain::Captain(string name) {
-    captainName = name;
-    team = nullptr;
-    captainCount++;
-};
-
 bool Captain::isMultipleCaptains() {
     if (captainCount > 1) {
         cout << "Warning: More than one captain created. Captain count: " << captainCount << endl;

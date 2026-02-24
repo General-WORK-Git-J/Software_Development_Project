@@ -9,7 +9,10 @@
 #include "team.h"
 #include "captain.h"
 
-using namespace std;
+using std::string;
+using std::cout;
+using std::endl;
+using std::vector;
 
 int main() {
     // Create heroes

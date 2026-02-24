@@ -47,7 +47,7 @@ Team(string tn, const static int maxH, Hero* h, int cnt);
 
 };
 
-Team::Team(string tn, Hero* h, int cnt) { 
+Team::Team(string tn,const static int maxH, Hero* h, int cnt) { 
 
     teamName = tn;  
     heroes = h;  
