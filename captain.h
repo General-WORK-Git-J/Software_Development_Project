@@ -4,25 +4,26 @@
 #include <iostream>
 #include <string>
 #include "hero.h"
+#include "team.h"
 
 class Captain {
     
 private:
 
 string captainName;
-//Team* team;
+Team* team;
 int captainCount = 0;
 
 public:
 
 //Getters
 string getCaptainName(){return captainName;}
-//Team* getTeam(){return team;}
+Team* getTeam(){return team;}
 int getCaptainCount() {return captainCount;}
 
 //Setters
 void setCaptainName(string n) {captainName = n;}
-//void setTeam(Team* t) {team = t;}
+void setTeam(Team* t) {team = t;}
 void setCaptainCount(int count) {captainCount = count;}
 
 //General
@@ -30,8 +31,10 @@ bool isMultipleCaptains();
 void displayCaptainInfo();
 
 //Constructors
-Captain();
-//Captain::Captain(string name, Team* t, int captainCount);
+Captain::Captain();
+Captain::Captain(string name, int count);
+Captain::Captain(string name, Team* t, int count);
+Captain::Captain(string name, Team* t, int captainCount);
 };
 
 Captain::Captain() {
@@ -40,10 +43,16 @@ Captain::Captain() {
     captainCount++;
 };
 
-//Captain::Captain(string name) {
-//    captainName = name;
-//    team = nullptr;
-//   captainCount++;
-//};
+Captain::Captain(string name, int count) {
+    captainName = name;
+    team = nullptr;
+   captainCount = count;
+};
+
+Captain::Captain(string name, Team* t, int count) {
+    captainName = name;
+    team = t;
+    captainCount = count;
+};
 
 #endif
