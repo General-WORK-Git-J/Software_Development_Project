@@ -54,15 +54,15 @@ int main() {
     animeHeroes.addHero(hero13);
 
     // Create a captain for the team
-//    Captain JLcaptain("Superman", &justiceLeague);
-//   Captain animeCaptain("Luffy", &animeHeroes);
+    //Captain JLcaptain("Superman", &justiceLeague);
+    //Captain animeCaptain("Luffy", &animeHeroes);
 
     // Display information about the captain and the team
-//    JLcaptain.displayCaptainInfo();
-    justiceLeague.displayTeamInfo();
+    //JLcaptain.displayCaptainInfo();
+    //justiceLeague.displayTeamInfo();
 
     //justiceLeague.displayCaptainInfo();
-//    animeCaptain.displayCaptainInfo();
+    //animeCaptain.displayCaptainInfo();
     animeHeroes.displayTeamInfo();
     
     return 0;

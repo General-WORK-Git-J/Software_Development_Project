@@ -1,52 +1,49 @@
 ideas:
 
-~ = maybe
-* = easy
-^ = hard
 
-slots (Kaido can take up multiple team slots)~
+1.  slots (Kaido can take up multiple team slots)
 
-system to compare teams (stats, member size, captains) ^
+2.  system to compare teams (stats, member size, captains)
 
-average stats of a given team *
+3.  average stats of a given team
 
-create heroes and teams through user input *
+4.  create heroes and teams through user input
 
-add descriptions (lore) to each hero given by the system, with the ability ->
--> to add lore to heroes added through user input ^~
+5.  add descriptions (lore) to each hero given by the system, with the ability
+    -> to add lore to heroes added through user input
 
-implementation of a nemesis/chemistry/friend system? (batman v joker) ~
+6.  implementation of a nemesis/chemistry/friend system? (batman v joker)
 
-implementation of a save state (text file)? *~
+7.  implementation of a save state (text file)
 
-multi user implementation with login system? *
+8.  multi user implementation with login system
 
-captain boost? (1.2x/1.5x to a given stat? or add a weakness?) ~
+9.  captain boost? (1.2x/1.5x to a given stat? or add a weakness?)
 
-sorts teams into highest to lowest? (stats, members, alphabetical order?) ^
+10. sorts teams into highest to lowest? (stats, members, alphabetical order?)
 
-admin login + limit to hero create for admin perms? (hard coded/interface) ^
+11. admin login + limit to hero create for admin perms? (hard coded/interface)
 
 
-(possible mechanics)
-Fighting
-Teams can have the bool hero or villain
-Teams can only fight bool if on opposing sides?
-Fighting takes user inputs or simulation occurs
+12. (possible mechanics)
+    Fighting
+    Teams can have the bool hero or villain
+    Teams can only fight bool if on opposing sides?
+    Fighting takes user inputs or simulation occurs
 
 
-admins can
-create and remove heroes--(for balance purposes)
-Delete teams
-See all teams created and by what user
-Change changes made by user, (ex edit a teams name)
+13. admins can
+    create and remove heroes--(for balance purposes)
+    Delete teams
+    See all teams created and by what user
+    Change changes made by user, (ex edit a teams name)
 
-Users can
-create teams
-add from a pool of characters created by the admin
-name the team
-add a description to their team
-possibly use battle functionality 
+14. Users can
+    create teams
+    add from a pool of characters created by the admin
+    name the team
+    add a description to their team
+    possibly use battle functionality 
 
 
 

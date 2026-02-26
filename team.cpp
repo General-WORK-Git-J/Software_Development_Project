@@ -11,6 +11,14 @@ using std::cout;
 using std::endl;
 using std::vector;
 
+Team::Team(string tn,const static int maxH, Hero* h, int cnt) { 
+
+    teamName = tn;  
+    heroes = h;  
+    heroCount = cnt;  
+
+};
+
 void Team::addHero(Hero h) {
     if (heroCount < MAX_HEROES) {
         teamHeroes[heroCount] = h; // Add hero to the team array

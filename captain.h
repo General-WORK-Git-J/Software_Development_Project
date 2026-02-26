@@ -37,22 +37,4 @@ Captain::Captain(string name, Team* t, int count);
 Captain::Captain(string name, Team* t, int captainCount);
 };
 
-Captain::Captain() {
-    captainName = "Unknown";
-//    team = nullptr;
-    captainCount++;
-};
-
-Captain::Captain(string name, int count) {
-    captainName = name;
-    team = nullptr;
-   captainCount = count;
-};
-
-Captain::Captain(string name, Team* t, int count) {
-    captainName = name;
-    team = t;
-    captainCount = count;
-};
-
 #endif

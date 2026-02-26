@@ -6,3 +6,13 @@
 #include "hero.h"
 #include "captain.h"
 #include "team.h"
+
+Hero::Hero(string n, int h, int a, string w, bool s, bool stat) {
+    heroName = n;
+    health = h;
+    attack = a;
+    weakness = w;
+    captainStatus = s;
+    isAlive = stat;
+    heroCount++;
+};

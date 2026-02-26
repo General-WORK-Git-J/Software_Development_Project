@@ -7,11 +7,9 @@
 #include <vector>
 #include <iostream>
 #include <string>
+
 using  std::string;
 using std::vector;
-using std::cout;
-using std::endl;
-using std::cin;
 
 class Hero {
     
@@ -54,18 +52,6 @@ Hero::Hero(string n, int h, int a);
 Hero::Hero(string n, int h, int a, string w);
 Hero::Hero(string n, int h, int a, string w, bool s);
 Hero::Hero(string n, int h, int a, string w, bool s, bool stat);
-};
-
-//Overload constructors
-
-Hero::Hero(string n, int h, int a, string w, bool s, bool stat) {
-    heroName = n;
-    health = h;
-    attack = a;
-    weakness = w;
-    captainStatus = s;
-    isAlive = stat;
-    heroCount++;
 };
 
 #endif
