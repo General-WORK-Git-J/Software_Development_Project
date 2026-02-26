@@ -1,0 +1,28 @@
+UML diagrams for the hero agency project
+
+----------------------------------------
+|    HeroName: string                   |
+|    health: int                        |
+|    attack: int                        |
+|    weakness: string                   |    
+|    heroCount: int                     |            
+|    captainStatus: bool                |
+|    isAlive: bool                      |                    
+----------------------------------------
+|    //Setters                          |
+|                                       |
+|                                       |
+|                                       |
+|                                       |
+|                                       |
+|                                       |
+|                                       |
+|    //Getters                          |
+|                                       |
+|                                       |
+|                                       |
+|                                       |
+|                                       |
+|                                       |
+|//General                              |
+-----------------------------------------
