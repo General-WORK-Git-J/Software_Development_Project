@@ -16,5 +16,4 @@ struct Squad {
 
 vector<Squad> loadSquad(const string & filename);
 
-
 #endif

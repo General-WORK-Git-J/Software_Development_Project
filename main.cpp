@@ -15,6 +15,8 @@ using std::endl;
 using std::vector;
 
 int main() {
+
+    
     // Create heroes
     Hero hero1("Superman", 100, 50, "Kryptonite");
     Hero hero2("Batman", 80, 30, "Himself");

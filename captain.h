@@ -10,31 +10,31 @@ class Captain {
     
 private:
 
-string captainName;
-Team* team;
-int captainCount = 0;
+    string captainName;
+    Team* team;
+    int captainCount = 0;
 
 public:
 
 //Getters
-string getCaptainName(){return captainName;}
-Team* getTeam(){return team;}
-int getCaptainCount() {return captainCount;}
+    string getCaptainName(){return captainName;}
+    Team* getTeam(){return team;}
+    int getCaptainCount() {return captainCount;}
 
 //Setters
-void setCaptainName(string n) {captainName = n;}
-void setTeam(Team* t) {team = t;}
-void setCaptainCount(int count) {captainCount = count;}
+    void setCaptainName(string n) {captainName = n;}
+    void setTeam(Team* t) {team = t;}
+    void setCaptainCount(int count) {captainCount = count;}
 
 //General
-bool isMultipleCaptains();
-void displayCaptainInfo();
-
+    bool isMultipleCaptains();
+    void displayCaptainInfo();
+    void assignCaptain(Hero hero, Team* team);
 //Constructors
-Captain::Captain();
-Captain::Captain(string name, int count);
-Captain::Captain(string name, Team* t, int count);
-Captain::Captain(string name, Team* t, int captainCount);
+    Captain::Captain();
+    Captain::Captain(string name, int count);
+    Captain::Captain(string name, Team* t, int count);
+    Captain::Captain(string name, Team* t, int captainCount);
 };
 
 #endif
