@@ -1,0 +1,4 @@
+PROGRAM START
+
+Menu: (1) List teams (2) Add hero to team (3) Save state (4) Load state (5) Exit -> 
+Menu: (1) List teams (2) Add hero to team (3) Save state (4) Load state (5) Exit -> ^C

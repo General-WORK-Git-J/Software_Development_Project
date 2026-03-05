@@ -1,0 +1,19 @@
+Justice League
+6
+Superman|100|50|Kryptonite|1|1
+Batman|80|30|Himself|0|1
+Wonder Woman |90|40|Ropes|0|1
+Flash|70|35|Cold|0|1
+Green Lantern|85|45|Yellow|0|1
+Aquaman|75|25|Dehydration|0|1
+----
+Anime Heroes
+7
+Ichigo|95|55|Plot|0|1
+Goku|120|60|Powerscalers|0|1
+Naruto|85|40|Sasuke|0|1
+Luffy|80|45|The Sea|1|1
+Frieren|90|50|Wakey Wakey|0|1
+Kiora|85|40|The Heart|0|1
+Saitama|100|100|Boredom|0|1
+----

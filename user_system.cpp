@@ -16,6 +16,7 @@ using std::cout;
 using std::endl;
 using std::vector;
 
+
 UserSystem::UserSystem() {
     loadUsers();
 }
@@ -25,16 +26,17 @@ void UserSystem::loadUsers() {
     if (!file.is_open()) {
         cerr << "Error opening users file." << endl;
         return;
-        users.clear();
-        while (!file.eof()){
-            User u;
-            file >> u.username >> u.password >> u.role;
-            if (!u.username.empty()) 
-                users[u.username] = u;
-        }
+    }
+
+    users.clear();
+    while (file) {
+        User u;
+        if (!(file >> u.username >> u.password >> u.role)) break;
+        if (!u.username.empty())
+            users[u.username] = u;
     }
     file.close();
-    // Load users from a file (not implemented here)
+    // Load users from a file
 }
 
 void UserSystem::saveUsers() {

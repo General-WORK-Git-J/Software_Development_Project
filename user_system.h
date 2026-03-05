@@ -3,8 +3,8 @@
 
 #include <iostream>
 #include <string>
+#include <map>
 #include <vector>
-#include "admin.h"
 
 using std::string;
 using std::vector;
@@ -15,6 +15,7 @@ using std::ios;
 using std::cerr;
 using std::cin;
 using std::pair;
+using std::map;
 
 
 struct User {
@@ -27,7 +28,7 @@ class UserSystem {
 
 private:
 
-    vector<pair<string, User>> users;
+    map<string, User> users;
     string currentUser;
     
 

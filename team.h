@@ -11,14 +11,14 @@
 #define TEAM_H
 #include <iostream>
 #include <string>
-#include "admin.h"
+#include "hero.h"
 
 class Team {
 
 private:
 string teamName;
-Hero* heroes;
-int heroCount;
+Hero* heroes = nullptr;
+int heroCount = 0;
 const static int MAX_HEROES = 10;
 int teamCount = 0;
 Hero teamHeroes[MAX_HEROES];
@@ -38,12 +38,15 @@ void setHeroCount(int cnt) {heroCount = cnt;}
 void addHero(Hero h); 
 void displayTeamInfo(); 
 void displayCaptainInfo(); 
+    
+    // Persistence
+    void save(std::ostream &os) const;
+    bool load(std::istream &is);
 
 // Constructors
 Team();
 Team(string tn);
 Team(string tn, Hero* h, int cnt);
-Team(string tn, const static int maxH, Hero* h, int cnt);
 
 };
 

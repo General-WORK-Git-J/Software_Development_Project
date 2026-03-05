@@ -26,12 +26,12 @@ private:
 public:
 
 //Getters
-    string getHeroName() {return heroName;}
-    int getHealth() {return health;}
-    int getAttack() {return attack;}
-    string getWeakness() {return weakness;}
-    bool getCaptainStatus() {return captainStatus;}
-    bool getAlive() {return isAlive;}
+    string getHeroName() const {return heroName;}
+    int getHealth() const {return health;}
+    int getAttack() const {return attack;}
+    string getWeakness() const {return weakness;}
+    bool getCaptainStatus() const {return captainStatus;}
+    bool getAlive() const {return isAlive;}
 
 //Setters
     void setHeroName(string n) { heroName = n;}
@@ -43,15 +43,14 @@ public:
 
 //General
 
-//Constructors
-
-    Hero::Hero();
-    Hero::Hero(string n);
-    Hero::Hero(string n, int h);
-    Hero::Hero(string n, int h, int a);
-    Hero::Hero(string n, int h, int a, string w);
-    Hero::Hero(string n, int h, int a, string w, bool s);
-    Hero::Hero(string n, int h, int a, string w, bool s, bool stat);
+// Constructors
+    Hero();
+    Hero(string n);
+    Hero(string n, int h);
+    Hero(string n, int h, int a);
+    Hero(string n, int h, int a, string w);
+    Hero(string n, int h, int a, string w, bool s);
+    Hero(string n, int h, int a, string w, bool s, bool stat);
 };
 
 #endif

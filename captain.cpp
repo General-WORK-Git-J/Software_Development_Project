@@ -1,41 +1,37 @@
 #include "captain.h"
+#include <iostream>
 #include "team.h"
-using std::string;
-using std::cout;
-using std::endl;
-using std::vector;
-
 
 Captain::Captain() {
     captainName = "Unknown";
-//    team = nullptr;
-    captainCount++;
-};
-
-Captain::Captain(string name, int count) {
-    captainName = name;
     team = nullptr;
-   captainCount = count;
-};
+    captainCount = 0;
+}
 
-Captain::Captain(string name, Team* t, int count) {
+Captain::Captain(const std::string &name, Team* t, int count) {
     captainName = name;
     team = t;
     captainCount = count;
-};
+}
 
 bool Captain::isMultipleCaptains() {
     if (captainCount > 1) {
-        cout << "Warning: More than one captain created. Captain count: " << captainCount << endl;
+        std::cout << "Warning: More than one captain created. Captain count: " << captainCount << std::endl;
         return true;
     }
     return false;
-};
+}
 
 void Captain::displayCaptainInfo() {
-    cout << "Captain Name: " << captainName << endl;
-    cout << "Team Name: " << team->getTeamName() << endl;
-    cout << "Heroes in the Team: " << team->getHeroCount() << endl;
-    cout << "Captain's Hero Status: " << (team->getHeroes()[0].getCaptainStatus() ? "Yes" : "No") << endl; // Assuming the captain is the first hero in the team array
-};
+    if (!team) {
+        std::cout << "No team assigned to this captain." << std::endl;
+        return;
+    }
+    std::cout << "Captain Name: " << captainName << std::endl;
+    std::cout << "Team Name: " << team->getTeamName() << std::endl;
+    std::cout << "Heroes in the Team: " << team->getHeroCount() << std::endl;
+    // The team's `displayCaptainInfo` will report which hero is captain; avoid
+    // accessing `getHeroes()` here because some Team implementations use an
+    // internal array and `getHeroes()` may be null.
+}
 

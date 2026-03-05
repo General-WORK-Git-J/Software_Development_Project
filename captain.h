@@ -3,40 +3,31 @@
 
 #include <iostream>
 #include <string>
-#include "hero.h"
-#include "team.h"
+
+class Team;
+class Hero;
 
 class Captain {
-    
 private:
-
-    string captainName;
+    std::string captainName;
     Team* team;
     int captainCount = 0;
 
 public:
+    Captain();
+    Captain(const std::string &name, Team* t, int count = 1);
 
-//Getters
-    string getCaptainName(){return captainName;}
-    Team* getTeam(){return team;}
-    int getCaptainCount() {return captainCount;}
+    std::string getCaptainName() const { return captainName; }
+    Team* getTeam() const { return team; }
+    int getCaptainCount() const { return captainCount; }
 
-//Setters
-    void setCaptainName(string n) {captainName = n;}
-    void setTeam(Team* t) {team = t;}
-    void setCaptainCount(int count) {captainCount = count;}
+    void setCaptainName(const std::string &n) { captainName = n; }
+    void setTeam(Team* t) { team = t; }
+    void setCaptainCount(int count) { captainCount = count; }
 
-//General
     bool isMultipleCaptains();
     void displayCaptainInfo();
     void assignCaptain(Hero hero, Team* team);
-
-//Constructors
-    Captain::Captain();
-    Captain::Captain(string name, int count);
-    Captain::Captain(string name, Team* t, int count);
-    Captain::Captain(string name, Team* t, int captainCount);
-    
 };
 
 #endif

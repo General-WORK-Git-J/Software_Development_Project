@@ -43,16 +43,17 @@ vector<Squad> loadSquad(const string & filename) {
             if (!getline(file, option)) {
                 cerr << "Error reading option " << i + 1 << " for squad: " << squad.text << endl;
                 break; // Error reading option
-                squads.push_back(squad);
             }
-        }   
+            squad.options.push_back(option);
+        }
 
-        
         string separator;
         if (!getline(file, separator) || separator != "----") {
             cerr << "Error reading separator after squad: " << squad.text << endl;
             break; // Error reading separator
         }
+
+        squads.push_back(squad);
     }
     return squads;
 }
