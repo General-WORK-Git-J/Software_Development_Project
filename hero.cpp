@@ -9,6 +9,22 @@
 
 Hero::Hero()
 {
+
+    
+}
+
+Hero::Hero(string n)
+{
+
+}
+
+Hero::Hero(string n, int h)
+{
+
+}
+
+Hero::Hero(string n, int h, int a)
+{
     
 }
 
@@ -21,6 +37,10 @@ Hero::Hero(string n, int h, int a, string w)
     captainStatus = false;
     isAlive = true;
     heroCount++;
+}
+
+Hero::Hero(string n, int h, int a, string w, bool s)
+{
 }
 
 Hero::Hero(string n, int h, int a, string w, bool s, bool stat)

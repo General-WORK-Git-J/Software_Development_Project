@@ -15,9 +15,15 @@ using std::string;
 using std::cout;
 using std::endl;
 using std::vector;
+using std::cin;
+using std::getline;
+using std::ofstream;
+using std::ifstream;
+using std::ios;
+
 
 int main() {
-    std::cout << "PROGRAM START" << std::endl;
+    cout << "PROGRAM START" << endl;
 
 
     // Create heroes
@@ -74,47 +80,47 @@ int main() {
     Captain animeCaptain("Luffy", &animeHeroes);
 
     // put teams in a container for save/load and interactive modification
-    std::vector<Team> teams;
+    vector<Team> teams;
     teams.push_back(justiceLeague);
     teams.push_back(animeHeroes);
 
     // Simple CLI loop
     bool running = true;
     while (running) {
-        std::cout << "\nMenu: (1) List teams (2) Add hero to team (3) Save state (4) Load state (5) Exit -> ";
+        cout << "\nMenu: (1) List teams (2) Add hero to team (3) Save state (4) Load state (5) Exit -> ";
         int choice = 0;
-        if (!(std::cin >> choice)) { std::cin.clear(); std::cin.ignore(10000, '\n'); continue; }
-        std::cin.ignore(10000, '\n');
+        if (!(cin >> choice)) { cin.clear(); cin.ignore(10000, '\n'); continue; }
+        cin.ignore(10000, '\n');
         if (choice == 1) {
             for (size_t i = 0; i < teams.size(); ++i) {
-                std::cout << "-- Team [" << i << "] --" << std::endl;
+                cout << "-- Team [" << i << "] --" << endl;
                 teams[i].displayTeamInfo();
                 teams[i].displayCaptainInfo();
             }
         } else if (choice == 2) {
-            std::cout << "Enter team index: "; size_t idx; if (!(std::cin >> idx)) { std::cin.clear(); std::cin.ignore(10000,'\n'); continue; }
-            std::cin.ignore(10000,'\n'); if (idx >= teams.size()) { std::cout << "Invalid index\n"; continue; }
-            std::string name; int health, attack; std::string weakness; char isCap='n';
-            std::cout << "Hero name: "; std::getline(std::cin, name);
-            std::cout << "Health: "; std::cin >> health; std::cin.ignore(10000,'\n');
-            std::cout << "Attack: "; std::cin >> attack; std::cin.ignore(10000,'\n');
-            std::cout << "Weakness: "; std::getline(std::cin, weakness);
-            std::cout << "Is captain? (y/n): "; std::cin >> isCap; std::cin.ignore(10000,'\n');
+            cout << "Enter team index: "; size_t idx; if (!(cin >> idx)) { cin.clear(); cin.ignore(10000,'\n'); continue; }
+            cin.ignore(10000,'\n'); if (idx >= teams.size()) { cout << "Invalid index\n"; continue; }
+            string name; int health, attack; string weakness; char isCap='n';
+            cout << "Hero name: "; getline(cin, name);
+            cout << "Health: "; cin >> health; cin.ignore(10000,'\n');
+            cout << "Attack: "; cin >> attack; cin.ignore(10000,'\n');
+            cout << "Weakness: "; getline(cin, weakness);
+            cout << "Is captain? (y/n): "; cin >> isCap; cin.ignore(10000,'\n');
             Hero h(name, health, attack, weakness, (isCap=='y' || isCap=='Y'), true);
             teams[idx].addHero(h);
-            std::cout << "Hero added.\n";
+            cout << "Hero added.\n";
         } else if (choice == 3) {
-            std::string fname; std::cout << "Save filename: "; std::getline(std::cin, fname);
+            string fname; cout << "Save filename: "; getline(cin, fname);
             if (fname.empty()) fname = "teams_state.txt";
-            std::ofstream ofs(fname);
+            ofstream ofs(fname);
             for (const auto &t : teams) t.save(ofs);
             ofs.close();
-            std::cout << "Saved to " << fname << std::endl;
+            cout << "Saved to " << fname << endl;
         } else if (choice == 4) {
-            std::string fname; std::cout << "Load filename: "; std::getline(std::cin, fname);
+            string fname; cout << "Load filename: "; getline(cin, fname);
             if (fname.empty()) fname = "teams_state.txt";
-            std::ifstream ifs(fname);
-            if (!ifs.is_open()) { std::cout << "Cannot open file\n"; continue; }
+            ifstream ifs(fname);
+            if (!ifs.is_open()) { cout << "Cannot open file\n"; continue; }
             teams.clear();
             while (ifs.peek() != EOF) {
                 Team t;
@@ -122,7 +128,7 @@ int main() {
                 teams.push_back(t);
             }
             ifs.close();
-            std::cout << "Loaded " << teams.size() << " teams from " << fname << std::endl;
+            cout << "Loaded " << teams.size() << " teams from " << fname << endl;
         } else if (choice == 5) {
             running = false;
         }
