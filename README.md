@@ -7,7 +7,6 @@ Charlie Lambe - C23324781
 This is a trial README for you, Lejla, as we want to get your opinion on our project and ideas as is.
 Feedback is much appreciated and we await your reply.
 
-
 ## Description/Deliverables:
 
 A multi-user Hero Agency application that allows for the creation of teams of pre-made heroes, with a "team captain" feature.
@@ -27,11 +26,8 @@ Save states
 
 A "captain boost" to stats
 
-
 These are ideas we have at the moment, can be expanded/scaled back as needed.
-Thank you for your time. :]
-
-
+Thank you for your time.
 
 ## UML Diagram
 
