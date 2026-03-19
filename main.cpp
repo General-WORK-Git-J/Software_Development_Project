@@ -88,7 +88,7 @@ int main() {
         if (!(cin >> choice)) { cin.clear(); cin.ignore(10000, '\n'); continue; }
         cin.ignore(10000, '\n');
         if (choice == 1) {
-            for (size_t i = 0; i < teams.size(); ++i) {
+            for (size_t i = 1; i < teams.size(); ++i) {
                 cout << "-- Team [" << i << "] --" << endl;
                 teams[i].displayTeamInfo();
                 teams[i].displayCaptainInfo();

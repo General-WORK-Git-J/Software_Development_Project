@@ -39,3 +39,7 @@ void Captain::displayCaptainInfo() {
     // internal array and `getHeroes()` may be null.
 }
 
+void Captain::assignCaptain(Hero hero, Team *team)
+{
+    
+}

@@ -4,6 +4,10 @@
 #include <iostream>
 #include <string>
 
+using std::string;
+using std::cout;
+using std::endl;
+
 // Forward declarations to avoid circular dependencies
 class Team;
 class Hero;
@@ -19,15 +23,15 @@ private:
 public:
 // Constructors
     Captain();
-    Captain(const std::string &name, Team* t, int count = 1);
+    Captain(const string &name, Team* t, int count = 1);
 
 // Getters
-    std::string getCaptainName() const { return captainName; }
+    string getCaptainName() const { return captainName; }
     Team* getTeam() const { return team; }
     int getCaptainCount() const { return captainCount; }
 
 // Setters
-    void setCaptainName(const std::string &n) { captainName = n; }
+    void setCaptainName(const string &n) { captainName = n; }
     void setTeam(Team* t) { team = t; }
     void setCaptainCount(int count) { captainCount = count; }
 
