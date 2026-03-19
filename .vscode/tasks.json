@@ -11,14 +11,14 @@
                 "/nologo",
                 "/Fe",
                 "${workspaceFolder}\\Software_Development_Project.exe",
-                "${workspaceFolder}\\main.cpp",
-                "${workspaceFolder}\\admin.cpp",
-                "${workspaceFolder}\\captain.cpp",
-                "${workspaceFolder}\\hero.cpp",
-                "${workspaceFolder}\\team.cpp",
-                "${workspaceFolder}\\user_system.cpp",
-                "${workspaceFolder}\\team_system.cpp",
-                "${workspaceFolder}\\villain.cpp"
+                "${workspaceFolder}\\CPP_Files\\main.cpp",
+                "${workspaceFolder}\\CPP_Files\\admin.cpp",
+                "${workspaceFolder}\\CPP_Files\\captain.cpp",
+                "${workspaceFolder}\\CPP_Files\\hero.cpp",
+                "${workspaceFolder}\\CPP_Files\\team.cpp",
+                "${workspaceFolder}\\CPP_Files\\user_system.cpp",
+                "${workspaceFolder}\\CPP_Files\\team_system.cpp",
+                "${workspaceFolder}\\CPP_Files\\villain.cpp"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"

@@ -4,7 +4,7 @@
             "name": "C/C++: cl.exe build and debug active file",
             "type": "cppvsdbg",
             "request": "launch",
-            "program": "${workspaceFolder}\\Software_Development_Project.exe",
+            "program": "${workspaceFolder}\\OBJ+PDB_files\\Software_Development_Project.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -14,5 +14,4 @@
         }
     ],
     "version": "2.0.0"
-    //"version": "0.2.0"
 }
