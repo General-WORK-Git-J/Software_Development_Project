@@ -1,11 +1,12 @@
-/*  
-    Implementation file for the Hero class, including constructors and member functions,
-    which defines the properties of hero characters in our Hero-Agency-Management project.
+/* Implementation: Hero
+   Constructors and basic behavior for `Hero`. Each constructor initializes
+   fields used throughout the system. Persistence is handled at higher levels
+   (e.g., Admin/Team) where heroes are written to disk in a simple text format.
 */
 
-#include "hero.h"
-#include "captain.h"
-#include "team.h"
+#include "../Header_Files/hero.h"
+#include "../Header_Files/captain.h"
+#include "../Header_Files/team.h"
 
 // Constructors
 Hero::Hero()

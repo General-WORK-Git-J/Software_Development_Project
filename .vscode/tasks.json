@@ -1,5 +1,5 @@
 
-{ // uncomment for cl.exe build task
+{
     "tasks": [
         {
             "label": "C/C++: cl.exe build active file",
@@ -9,13 +9,13 @@
                 "/Zi",
                 "/EHsc",
                 "/nologo",
-                "/Fe",
-                "${workspaceFolder}\\Software_Development_Project.exe",
+                "/Fe:${workspaceFolder}\\Software_Development_Project.exe",
                 "${workspaceFolder}\\CPP_Files\\main.cpp",
                 "${workspaceFolder}\\CPP_Files\\admin.cpp",
                 "${workspaceFolder}\\CPP_Files\\captain.cpp",
                 "${workspaceFolder}\\CPP_Files\\hero.cpp",
                 "${workspaceFolder}\\CPP_Files\\team.cpp",
+                "${workspaceFolder}\\CPP_Files\\team_reader.cpp",
                 "${workspaceFolder}\\CPP_Files\\user_system.cpp",
                 "${workspaceFolder}\\CPP_Files\\team_system.cpp",
                 "${workspaceFolder}\\CPP_Files\\villain.cpp"

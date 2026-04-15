@@ -1,10 +1,6 @@
-/*  Header file for the Team class, which represents a team of heroes in a Hero-Agency-Management project. 
-    The Team class includes member variables for the team name,
-    an array of Hero objects,
-    and the count of heroes in the team. 
-    It also includes member functions to set and get these variables,
-    as well as functions to add a hero to the team
-    display information about the team and its captain.
+/* Team class
+   Represents a collection of `Hero` objects with simple persistence support.
+   Teams can save/load themselves to a text stream using `save`/`load`.
 */
 
 #ifndef TEAM_H
@@ -13,7 +9,7 @@
 #include <iostream>
 #include <string>
 
-#include "hero.h"
+#include "../Header_Files/hero.h"
 
 class Team {
 

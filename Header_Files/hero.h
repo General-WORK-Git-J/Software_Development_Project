@@ -1,5 +1,6 @@
-/*  Header file for the Hero class, which includes constructors and member functions,
-    which defines the properties of hero characters in our Hero-Agency-Management project.
+/* Hero class
+   Represents an individual hero with attributes such as name, health, attack,
+   weakness and status flags. Used by `Team` and higher-level systems.
 */
 
 #ifndef HERO_H

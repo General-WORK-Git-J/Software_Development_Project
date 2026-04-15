@@ -1,11 +1,12 @@
-/* 
-    Implementation file for the Team class, including constructors and member functions,
-    which defines the properties of teams in our Hero-Agency-Management project.
+/* Implementation: Team
+   Implements constructors and behaviors for `Team`, including adding heroes,
+   displaying information and persisting teams to/from streams. The format used
+   by `save`/`load` is a human-readable, line-oriented text format.
 */
 
-#include "team.h"
-#include "hero.h"
-#include "captain.h"
+#include "../Header_Files/team.h"
+#include "../Header_Files/hero.h"
+#include "../Header_Files/captain.h"
 
 using std::string;
 using std::cout;

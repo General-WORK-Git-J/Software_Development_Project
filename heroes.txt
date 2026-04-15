@@ -1,0 +1,5 @@
+Superman|100|50|Kryptonite|1|1
+Batman|80|30|Himself|0|1
+Wonder Woman|90|40|Ropes|0|1
+ScriptedHero|55|30|None|0|1
+AdminCreatedHero|88|44|None|0|1

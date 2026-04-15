@@ -1,3 +1,4 @@
+// Captain: lightweight wrapper representing a team's captain and helpers
 #ifndef CAPTAIN_H
 #define CAPTAIN_H
 

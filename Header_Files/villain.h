@@ -33,6 +33,6 @@ public:
 
 // Constructors
     Villain();
-    Villain(int b, int d, string w) : bounty(b), dangerLevel(d), weakness(w) {}
+    Villain(int b, int d, string w);
 
 };

@@ -1,8 +1,8 @@
-#include "user_system.h"
-#include "admin.h"
-#include "hero.h"
-#include "team.h"
-#include "captain.h"
+#include "../Header_Files/user_system.h"
+#include "../Header_Files/admin.h"
+#include "../Header_Files/hero.h"
+#include "../Header_Files/team.h"
+#include "../Header_Files/captain.h"
 
 #include <iostream>
 #include <string>
@@ -85,4 +85,11 @@ bool UserSystem::isAdmin() {
         }
     }
     return false;
+}
+
+// Return the role string for the current user (empty if none)
+string UserSystem::getCurrentUserRole() {
+    if (currentUser.empty()) return string();
+    if (users.count(currentUser)) return users[currentUser].role;
+    return string();
 }

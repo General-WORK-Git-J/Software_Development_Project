@@ -1,4 +1,4 @@
-#include "team_reader.h"
+#include "../Header_Files/team_reader.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -13,6 +13,9 @@ using std::getline;
 using std::cerr;
 
 // Function to load squads from a file
+// Expects file format where each squad is represented by a text line,
+// followed by a line with an integer option count, then that many option lines,
+// and a separator line "----". Returns an empty vector on error.
 vector<Squad> loadSquad(const string & filename) {
     vector<Squad> squads;
     ifstream file(filename);

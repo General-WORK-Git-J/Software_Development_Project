@@ -1,6 +1,6 @@
-#include "captain.h"
+#include "../Header_Files/captain.h"
 #include <iostream>
-#include "team.h"
+#include "../Header_Files/team.h"
 
 // Default constructor
 Captain::Captain() {

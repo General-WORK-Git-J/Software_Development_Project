@@ -1,4 +1,4 @@
-#include "team_system.h"
+#include "../Header_Files/team_system.h"
 
 #include <fstream>
 #include <iostream>
@@ -14,7 +14,8 @@ using std::cin;
 using std::endl;
 using std::ios;
 
-// Load teams from a file
+// Load teams from a file into the TeamSystem's `teams` container.
+// This delegates to `loadSquad` which reads a simple squad file format.
 void TeamSystem::loadFromFile(const string & filename) {
     teams = loadSquad(filename);
 }
@@ -40,6 +41,7 @@ void TeamSystem::saveToFile(const string & filename) {
 // Add a team to the system
 void TeamSystem::addTeam(const Squad & team) {
     teams.push_back(team);
+    
 }
 
 // Interactive function to add a team by prompting the user for input
