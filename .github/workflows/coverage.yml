@@ -1,0 +1,132 @@
+name: Coverage (reusable)
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_call:
+    inputs:
+      build_dir:
+        description: 'CMake build directory'
+        required: false
+        default: 'build'
+        type: string
+      generator:
+        description: 'CMake generator to use'
+        required: false
+        default: 'Unix Makefiles'
+        type: string
+      enable_coverage:
+        description: 'Enable coverage (true/false or ON/OFF)'
+        required: false
+        default: 'true'
+        type: string
+      build_type:
+        description: 'CMake build type'
+        required: false
+        default: 'Debug'
+        type: string
+      jobs:
+        description: 'Parallel build jobs'
+        required: false
+        default: 2
+        type: number
+      publish_pages:
+        description: 'Publish coverage to GitHub Pages (true/false)'
+        required: false
+        default: 'false'
+        type: string
+      runs_on:
+        description: 'Runner image to use'
+        required: false
+        default: 'ubuntu-latest'
+        type: string
+      artifact_name:
+        description: 'Uploaded artifact name'
+        required: false
+        default: 'coverage-report'
+        type: string
+      cmake_extra_args:
+        description: 'Additional args passed to cmake configure'
+        required: false
+        default: ""
+        type: string
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  coverage:
+    runs-on: ${{ inputs.runs_on }}
+    outputs:
+      coverage-path: ${{ steps.generate.outputs.coverage-path }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential cmake lcov
+          python -m pip install --upgrade pip
+          python -m pip install gcovr
+
+      - name: Install gcovr (fallback)
+        if: runner.os != 'Linux'
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install gcovr
+
+      - name: Configure
+        run: |
+          cmake -S . -B "${{ inputs.build_dir }}" -G "${{ inputs.generator }}" -DENABLE_COVERAGE=${{ inputs.enable_coverage }} -DCMAKE_BUILD_TYPE=${{ inputs.build_type }} ${{ inputs.cmake_extra_args }}
+
+      - name: Build
+        run: |
+          cmake --build "${{ inputs.build_dir }}" -- -j ${{ inputs.jobs }}
+
+      - name: Run tests
+        run: |
+          ctest --test-dir "${{ inputs.build_dir }}" -C "${{ inputs.build_type }}" --output-on-failure
+
+      - name: Generate coverage report
+        id: generate
+        run: |
+          gcovr -r . --html --html-details -o "${{ inputs.build_dir }}/coverage.html"
+          echo "coverage-path=${{ inputs.build_dir }}/coverage.html" >> $GITHUB_OUTPUT
+
+      - name: Upload coverage HTML artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ inputs.artifact_name }}
+          path: ${{ inputs.build_dir }}/coverage.html
+
+      - name: Prepare GitHub Pages content
+        if: ${{ inputs.publish_pages == 'true' }}
+        run: |
+          mkdir -p public
+          cp "${{ inputs.build_dir }}/coverage.html" public/index.html
+
+      - name: Upload Pages artifact
+        if: ${{ inputs.publish_pages == 'true' }}
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: public
+
+  deploy-pages:
+    needs: coverage
+    if: ${{ inputs.publish_pages == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
