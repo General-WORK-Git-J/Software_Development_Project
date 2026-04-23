@@ -1,0 +1,30 @@
+Start testing: Apr 16 19:37 GMT Summer Time
+----------------------------------------------------------
+End testing: Apr 16 19:37 GMT Summer Time
+
+The following tests passed:
+      1 - HelloTest.BasicAssertions (Passed)
+      2 - HeroTest.ConstructorsAndGetters (Passed)
+      3 - TeamTest.AddSaveLoad (Passed)
+      4 - TeamReaderTest.LoadSquad (Passed)
+      5 - TeamSystemTest.SaveAndLoad (Passed)
+      6 - UserSystemTest.RegisterLogin (Passed)
+The following tests failed:
+    7 - MainRun.Exits (Failed)
+
+----------------------------------------------------------
+
+Start testing: Apr 17 12:25 GMT Summer Time
+----------------------------------------------------------
+End testing: Apr 17 12:25 GMT Summer Time
+
+The following tests passed:
+      1 - HelloTest.BasicAssertions (Passed)
+      2 - HeroTest.ConstructorsAndGetters (Passed)
+      3 - TeamTest.AddSaveLoad (Passed)
+      4 - TeamReaderTest.LoadSquad (Passed)
+      5 - TeamSystemTest.SaveAndLoad (Passed)
+      6 - UserSystemTest.RegisterLogin (Passed)
+      7 - MainRun.Exits (Passed)
+The following tests failed:
+

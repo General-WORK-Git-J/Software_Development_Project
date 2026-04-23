@@ -1,5 +1,6 @@
 #include "../Header_Files/team_system.h"
 
+#include <algorithm>
 #include <fstream>
 #include <iostream>
 #include <limits>
@@ -14,10 +15,20 @@ using std::cin;
 using std::endl;
 using std::ios;
 
+void TeamSystem::sortTeamsByName() {
+    std::sort(teams.begin(), teams.end(),
+        [](const Squad & left, const Squad & right) {
+            return left.text < right.text;
+        });
+}
+
 // Load teams from a file into the TeamSystem's `teams` container.
 // This delegates to `loadSquad` which reads a simple squad file format.
 void TeamSystem::loadFromFile(const string & filename) {
-    teams = loadSquad(filename);
+    teams.clear();
+    for (const Squad & team : loadSquad(filename)) {
+        addTeam(team);
+    }
 }
 
 // Save teams to a file
@@ -40,8 +51,42 @@ void TeamSystem::saveToFile(const string & filename) {
 
 // Add a team to the system
 void TeamSystem::addTeam(const Squad & team) {
+    if (team.text.empty()) {
+        throw TeamSystemException("Team name cannot be empty.");
+    }
+
+    if (findTeam(team.text) != nullptr) {
+        throw TeamSystemException("Team already exists: " + team.text);
+    }
+
     teams.push_back(team);
-    
+    sortTeamsByName();
+}
+
+Squad* TeamSystem::findTeam(const string & teamName) {
+    auto it = std::find_if(teams.begin(), teams.end(),
+        [&teamName](const Squad &team) {
+            return team.text == teamName;
+        });
+
+    if (it == teams.end()) {
+        return nullptr;
+    }
+
+    return &(*it);
+}
+
+const Squad* TeamSystem::findTeam(const string & teamName) const {
+    auto it = std::find_if(teams.begin(), teams.end(),
+        [&teamName](const Squad &team) {
+            return team.text == teamName;
+        });
+
+    if (it == teams.end()) {
+        return nullptr;
+    }
+
+    return &(*it);
 }
 
 // Interactive function to add a team by prompting the user for input
@@ -53,7 +98,9 @@ void TeamSystem::addingTeam(const string & filename) {
     }
 
     Squad newTeam;
-    newTeam.text = filename;
+
+    cout << "Enter the team name: ";
+    getline(cin, newTeam.text);
 
     int optionsCount;
     cout << "Enter the number of options for the team: ";
@@ -67,5 +114,12 @@ void TeamSystem::addingTeam(const string & filename) {
         newTeam.options.push_back(option);
     }
 
-teams.push_back(newTeam);
+    addTeam(newTeam);
+
+    file << newTeam.text << endl;
+    file << newTeam.options.size() << endl;
+    for (const string & option : newTeam.options) {
+        file << option << endl;
+    }
+    file << "----" << endl;
 }

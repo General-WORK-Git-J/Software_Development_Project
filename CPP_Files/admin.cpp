@@ -7,12 +7,12 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 
 using std::string;
 using std::cout;
 using std::endl;
-using std::vector;  
-using std::ofstream;
+using std::vector;
 using std::ios;
 using std::cerr;
 using std::cin;

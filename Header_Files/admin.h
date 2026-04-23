@@ -5,6 +5,8 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
+#include <fstream>
 
 #include "../Header_Files/hero.h"
 #include "../Header_Files/team.h"

@@ -8,36 +8,46 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include "../Header_Files/hero.h"
+
+using std::string;
+using std::vector;
 
 class Team {
 
 private:
 
     string teamName;
-    Hero* heroes = nullptr;
+    vector<Hero> teamHeroes;
     int heroCount = 0;
     const static int MAX_HEROES = 10;
     int teamCount = 0;
-    Hero teamHeroes[MAX_HEROES];
+
+    void syncHeroCount() { heroCount = static_cast<int>(teamHeroes.size()); }
 
 public:
 
 //Getters 
-    string getTeamName() {return teamName;}
-    Hero* getHeroes() {return heroes;} 
-    int getHeroCount() {return heroCount;} 
+    string getTeamName() const {return teamName;}
+    Hero* getHeroes() {return teamHeroes.empty() ? nullptr : teamHeroes.data();}
+    const Hero* getHeroes() const {return teamHeroes.empty() ? nullptr : teamHeroes.data();}
+    int getHeroCount() const {return heroCount;} 
 
 //Setters
     void setTeamName(string tn) {teamName = tn;} 
-    void setHeroes(Hero* h) {heroes = h;} 
+    void setHeroes(Hero* h);
     void setHeroCount(int cnt) {heroCount = cnt;}
 
 //General
     void addHero(Hero h); 
     void displayTeamInfo(); 
     void displayCaptainInfo(); 
+    Hero* findHero(const string &heroName);
+    const Hero* findHero(const string &heroName) const;
+    Hero* findCaptain();
+    const Hero* findCaptain() const;
     
 // Persistence
     void save(std::ostream &os) const;

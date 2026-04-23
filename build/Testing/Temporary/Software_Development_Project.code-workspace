@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../../../my_project"
+		}
+	],
+	"settings": {
+		"powershell.cwd": "Software_Development_Project"
+	}
+}
