@@ -165,6 +165,26 @@ bool Team::removeHeroByName(const string &heroName) {
     syncHeroCount();
     return true;
 }
+// NEW CODE: removes captain status from the matching hero if they are currently the captain.
+bool Team::removeCaptainStatusFromHero(const string &heroName) {
+    Hero* hero = findHero(heroName);
+
+    if (hero == nullptr) {
+        return false;
+    }
+
+    if (!hero->getCaptainStatus()) {
+        return false;
+    }
+
+    hero->setCaptainStatus(false);
+    return true;
+}
+
+// NEW CODE: sorts heroes alphabetically using the Hero operator< overload.
+void Team::sortHeroesAlphabetically() {
+    std::sort(teamHeroes.begin(), teamHeroes.end());
+}
 
 // Save team information to a stream
 void Team::save(std::ostream &os) const {

@@ -44,7 +44,7 @@ int main() {
     Hero hero8("Goku", 120, 60, "Powerscalers");
     Hero hero9("Naruto", 85, 40, "Sasuke");
     Hero hero10("Luffy", 80, 45, "The Sea");
-    Hero hero11("Frieren", 90.0, 50, "Wakey Wakey");
+    Hero hero11("Frieren", 90, 50, "Wakey Wakey");
     Hero hero12("Kiora", 85, 40, "The Heart");
     Hero hero13("Saitama", 100, 100, "Boredom");
     Hero hero14("Captain Underpants", 80, 40, "Snapping fingers");
@@ -57,6 +57,8 @@ int main() {
     
     // Create a team and add heroes to it
     Team justiceLeague("Justice League");
+
+    // NEW CODE: set captain status before adding so the stored team copy keeps it.
     hero1.setCaptainStatus(true);
     justiceLeague.addHero(hero1);
     justiceLeague.addHero(hero2);
@@ -67,6 +69,8 @@ int main() {
 
     // Create another team and add heroes to it
     Team animeHeroes("Anime Heroes");
+
+    // NEW CODE: set captain status before adding so the stored team copy keeps it.
     hero10.setCaptainStatus(true);
     animeHeroes.addHero(hero7);     
     animeHeroes.addHero(hero8);
@@ -145,37 +149,96 @@ int main() {
         }
     }
 
-    // Simple CLI loop
+    // NEW CODE: main loop now uses smaller submenus to keep the interface less cramped.
     bool running = true;
 
     while (running) {
-
-        // NEW CODE: show the currently logged-in user.
-        cout <<CYAN<< "\nCurrent User: " << userSys.getCurrentUser()<< RESET;
-
+        cout << CYAN << "\nCurrent User: " << userSys.getCurrentUser() << RESET << endl;
         showMainMenu();
 
         int choice = 0;
-        if (!(cin >> choice)) 
-        { 
+        if (!(cin >> choice)) {
             cin.clear();
             cin.ignore(10000, '\n');
-            continue; 
+            continue;
         }
 
         cin.ignore(10000, '\n');
 
         if (choice == 1) {
             listTeamsFromMenu(teams);
-        } 
+        }
 
-        else if (choice == 2) 
-        {
-            addHeroToTeamFromMenu(teams);
-        } 
+        else if (choice == 2) {
+            bool teamMenuRunning = true;
 
-        else if (choice == 3) 
-        {
+            while (teamMenuRunning) {
+                showTeamManagementMenu();
+
+                int teamChoice = 0;
+                if (!(cin >> teamChoice)) {
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                    continue;
+                }
+
+                cin.ignore(10000, '\n');
+
+                if (teamChoice == 1) {
+                    createTeamFromMenu(teams);
+                }
+                else if (teamChoice == 2) {
+                    renameTeamFromMenu(teams);
+                }
+                else if (teamChoice == 3) {
+                    deleteTeamFromMenu(teams);
+                }
+                else if (teamChoice == 4) {
+                    sortTeamsFromMenu(teams);
+                }
+                else if (teamChoice == 5) {
+                    teamMenuRunning = false;
+                }
+            }
+        }
+
+        else if (choice == 3) {
+            bool heroMenuRunning = true;
+
+            while (heroMenuRunning) {
+                showHeroManagementMenu();
+
+                int heroChoice = 0;
+                if (!(cin >> heroChoice)) {
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                    continue;
+                }
+
+                cin.ignore(10000, '\n');
+
+                if (heroChoice == 1) {
+                    addHeroToTeamFromMenu(teams);
+                }
+                else if (heroChoice == 2) {
+                    deleteHeroFromTeamFromMenu(teams);
+                }
+                else if (heroChoice == 3) {
+                    removeCaptainFromHeroFromMenu(teams);
+                }
+                else if (heroChoice == 4) {
+                    sortHeroesInTeamFromMenu(teams);
+                }
+                else if (heroChoice == 5) {
+                    viewFullTeamInfoFromMenu(teams);
+                }
+                else if (heroChoice == 6) {
+                    heroMenuRunning = false;
+                }
+            }
+        }
+
+        else if (choice == 4) {
             string fname;
             cout << "Save filename: ";
             getline(cin, fname);
@@ -187,11 +250,10 @@ int main() {
                 t.save(ofs);
             }
             ofs.close();
-            cout << "Saved to " << fname << endl;
-        } 
+            cout << GREEN << "Saved to " << fname << endl << RESET;
+        }
 
-        else if (choice == 4) 
-        {
+        else if (choice == 5) {
             string fname;
             cout << "Load filename: ";
             getline(cin, fname);
@@ -200,7 +262,7 @@ int main() {
 
             ifstream ifs(fname);
             if (!ifs.is_open()) {
-                cout << "Cannot open file\n";
+                cout << RED << "Cannot open file." << endl << RESET;
                 continue;
             }
 
@@ -211,70 +273,18 @@ int main() {
                 teams.push_back(t);
             }
             ifs.close();
-            cout << "Loaded " << teams.size() << " teams from " << fname << endl;
-        } 
+            cout << GREEN << "Loaded " << teams.size() << " teams from " << fname << endl << RESET;
+        }
 
-        else if (choice == 5) 
-        {
+        else if (choice == 6) {
+            openReadMeFromMenu();
+        }
+
+        else if (choice == 7) {
             userSys.logoutUser();
             running = false;
         }
-        
-        else if (choice == 6)
-        {
-            string teamName;
-            bool duplicateTeam = false;
-
-            cout << "Enter team name: ";
-            getline(cin, teamName);
-
-            if (teamName.empty()) {
-                cout << "Team name cannot be empty." << endl;
-                continue;
-            }
-
-            for (size_t i = 0; i < teams.size(); ++i) {
-                if (teams[i].getTeamName() == teamName) {
-                    duplicateTeam = true;
-                    break;
-                }
-            }
-
-            if (duplicateTeam) {
-                cout << RED << "A team with that name already exists." << endl << RESET;
-                continue;
-            }
-
-            Team newTeam(teamName);
-            teams.push_back(newTeam);
-            cout << GREEN << "Team created successfully." << endl << RESET;
-        }
-
-        else if (choice == 7)
-        {
-            deleteTeamFromMenu(teams);
-        }
-
-        else if (choice == 8)
-        {
-            deleteHeroFromTeamFromMenu(teams);
-        }
-
-        else if (choice == 9)
-        {
-            // NEW CODE: display all teams with the full attributes of each hero.
-            if (teams.empty()) {
-                cout << "No teams available.\n";
-                continue;
-            }
-
-            for (size_t i = 0; i < teams.size(); ++i) {
-                cout << "-- Team [" << (i + 1) << "] --" << endl;
-                teams[i].displayFullTeamInfo();
-                cout << "------------------------------" << endl;
-            }
-        }
-
     }
+
     return 0;
 }

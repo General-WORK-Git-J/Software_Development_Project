@@ -49,14 +49,17 @@ public:
 
     // NEW CODE: marked const so teams can be displayed through a const reference.
     void displayCaptainInfo() const;
-
     Hero* findHero(const string &heroName);
+
     const Hero* findHero(const string &heroName) const;
     Hero* findCaptain();
     const Hero* findCaptain() const;
 
     //removes a hero from the team by name.
     bool removeHeroByName(const string &heroName);
+    bool removeCaptainStatusFromHero(const string &heroName);
+    void sortHeroesAlphabetically();
+    bool operator<(const Team& other) const { return teamName < other.teamName; }
 
     // Persistence
     void save(std::ostream &os) const;

@@ -45,6 +45,9 @@ public:
 
 //General
 
+ //allows heroes to be sorted alphabetically using operator
+    bool operator<(const Hero& other) const { return heroName < other.heroName; }
+
 // Constructors
     Hero();
     Hero(string n);
